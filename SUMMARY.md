@@ -1,17 +1,21 @@
 # Table of contents
 
-* [Welcome](README.md)
+## Home
 
-## Security stuff
+* [About Me](README.md)
+* [Projects](home/projects.md)
 
-* [Quickstart](security-stuff/quickstart.md)
-* [Publish your docs](security-stuff/publish-your-docs.md)
+## Security Notes
+
+* [General](security-notes/quickstart.md)
+* [TryHackMe](security-notes/tryhackme.md)
+* [HackTheBox](security-notes/hackthebox.md)
 
 ## Walkthroughs
 
-* [Editor](walkthroughs/editor.md)
-* [Markdown](walkthroughs/markdown.md)
-* [Images & media](walkthroughs/images-and-media.md)
+* [CTFs](walkthroughs/ctfs.md)
+* [TryHackMe](walkthroughs/tryhackme.md)
+* [HackTheBox](walkthroughs/hackthebox.md)
 * [Interactive blocks](walkthroughs/interactive-blocks.md)
 * [OpenAPI](walkthroughs/openapi.md)
 * [Integrations](walkthroughs/integrations.md)
