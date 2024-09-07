@@ -1,2 +1,2 @@
-# Red Teaming Learning Path
+# 🏹 Red Teaming Learning Path
 

@@ -1,4 +1,8 @@
-# Images & media
+---
+icon: cube
+---
+
+# HackTheBox
 
 GitBook allows you to add images and media easily to your docs. Simply drag a file into the editor, or use the file manager in the upper right corner to upload multiple images at once.
 
