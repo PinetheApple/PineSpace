@@ -1,6 +1,0 @@
----
-icon: angle-right
----
-
-# Splunk
-

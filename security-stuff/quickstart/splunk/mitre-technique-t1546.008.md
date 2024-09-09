@@ -1,0 +1,13 @@
+# MITRE Technique T1546.008
+
+{% embed url="https://attack.mitre.org/techniques/T1546/008/" %}
+
+{% embed url="https://github.com/redcanaryco/atomic-red-team/blob/5c1e6f1b4fafd01c8d1ece85f510160fc1275fbf/atomics/T1546.008/T1546.008.md" %}
+
+```splunk-spl
+index=sysmon (EventCode=13 TargetObject IN (*osk.exe*, *sethc.exe*, *utilman.exe*, *magnify.exe*, *narrator.exe*, *DisplaySwitch.exe*, *atbroker.exe*)) OR (TargetFilename IN (*osk.exe*, *sethc.exe*) EventCode=11)
+| eval TargetFile=coalesce(TargetObject, TargetFilename) 
+| mvexpand User
+| search NOT User="NOT_TRANSLATED"
+| table TargetFile UtcTime Sid ProcessGuid ProcessId User ComputerName
+```
