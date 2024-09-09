@@ -27,10 +27,6 @@ layout:
 
 
 
-## Applications / Tools used
-
-
-
 ## Interests / Hobbies
 
 

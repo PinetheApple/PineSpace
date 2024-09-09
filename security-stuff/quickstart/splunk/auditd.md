@@ -6,7 +6,7 @@ description: >-
 
 # Auditd
 
-Auditd is a tool for maintaining logs for events that take place on Linux systems to help system administrators and security analysts monitor security breaches and incidents
+Auditd is a tool for maintaining logs for events that take place on Linux systems to help system administrators and security analysts monitor security breaches and incidents.
 
 ## Rules
 
@@ -59,5 +59,3 @@ index = auditd
 ```
 
 </details>
-
-A simpler solution to solve the problem of logs having encoded values and being split when imported into Splunk is to set up configurations to handle these before the logs get indexed.
