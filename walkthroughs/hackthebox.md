@@ -1,5 +1,7 @@
 ---
 icon: cube
+cover: ../.gitbook/assets/htb_green.png
+coverY: 0
 ---
 
 # HackTheBox
