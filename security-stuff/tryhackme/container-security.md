@@ -6,6 +6,8 @@ description: Notes from the 'Container Security' module of TryHackMe
 # Container Security
 
 {% embed url="https://tryhackme.com/module/container-security" %}
+Link to the module
+{% endembed %}
 
 ## Container Vulnerabilities
 
@@ -60,15 +62,57 @@ sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
 
 ### Escaping via Exposed Docker Daemon
 
-When inter
+When interacting with the Docker Engine (by running commands such as `docker run`) it is done using a socket, unless the command is executed to a remote Docker host. Unix sockets use filesystem permissions, meaning that you will have to be a member of the docker group (or root) to run Docker commands.&#x20;
+
+The socket will be mounted on the container as a`docker.sock` file. You can search for the file using the `find` command. On Ubuntu systems, it will be located in the `/var/run` directory.
+
+You can use the Docker daemon to create a new container and mount the host's filesystem into the container to indirectly gain access to the host's filesystem. This can be achieved by running the following command -
+
+```bash
+docker run -v /:/mnt --rm -it alpine chroot /mnt sh
+```
+
+The command does the following -
+
+1. Starts a new container with the host's file system mounted to `/mnt` in the new container
+2. Runs the container interactively using `-it`
+3. Changes the root directory of the container to `/mnt`
+4. Tells the container to run `sh` to gain a shell and execute commands in the container
 
 ### Remote Code Execution via Exposed Docker Daemon
 
+Docker can also use TCP sockets to achieve [IPC](https://en.wikipedia.org/wiki/Inter-process\_communication). It can be remotely administrated using tools such as Portainer or Jenkins to deploy containers for testing code. Docker Engine will listen on a port (2375 by default) when configured to be run remotely. This makes it easy to remotely access the container but it is difficult to do securely. You can find out if a device has docker remotely accessible by using nmap -
 
+```bash
+nmap -sV -p 2375 <ip_address>
+```
+
+An exposed docker daemon can be interacted with by using `curl`.
+
+```bash
+curl http://<ip_address>:2375/version
+```
+
+Docker has to be used to send commands to a target. Add `-H` to switch to the target. You can run various commands like `network`, `images`, `exec`, `run`.
+
+```bash
+docker -H tcp://<ip_address>:2375 ps
+```
 
 ### Abusing Namespaces
 
+Sometimes, containers will share the same namespace as the host OS for communication between the container and host. This can be abused by using the `nsenter` command. The command allows you to execute or start processes and place them within the same namespace as another process.&#x20;
 
+You can abuse the fact that the container can see the `/sbin/init` process on the host to launch new commands such as a bash shell on the host. This can be done using the following command -
+
+```bash
+nsenter --target 1 --mount --uts --ipc --net /bin/bash
+```
+
+The command does the following -
+
+1. Sets the target of the shell command as the namespace of the special system process (PID 1) to gain root
+2.
 
 ***
 

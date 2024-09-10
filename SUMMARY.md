@@ -15,7 +15,12 @@
     * [Auditd](security-stuff/quickstart/splunk/auditd.md)
 * [TryHackMe](security-stuff/tryhackme/README.md)
   * [Container Security](security-stuff/tryhackme/container-security.md)
-  * [🏹 Red Teaming Learning Path](security-stuff/tryhackme/red-teaming-learning-path.md)
+  * [🏹 Red Teaming Learning Path](security-stuff/tryhackme/red-teaming-learning-path/README.md)
+    * [Fundamentals](security-stuff/tryhackme/red-teaming-learning-path/fundamentals.md)
+    * [Initial Access](security-stuff/tryhackme/red-teaming-learning-path/initial-access.md)
+    * [Post Compromise](security-stuff/tryhackme/red-teaming-learning-path/post-compromise.md)
+    * [Host Evasions](security-stuff/tryhackme/red-teaming-learning-path/host-evasions.md)
+    * [Network Security Evasion](security-stuff/tryhackme/red-teaming-learning-path/network-security-evasion.md)
 * [HackTheBox](security-stuff/hackthebox/README.md)
   * [Bug bounty hunting](security-stuff/hackthebox/bug\_bounty.md)
 
