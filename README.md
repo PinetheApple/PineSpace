@@ -19,17 +19,54 @@ layout:
 
 # About Me
 
-## Experience
 
 
+<details>
 
-## Certifications
+<summary>Experience</summary>
 
+```markdown
+Cybersecurity Intern
+# @Airbus
 
+```
 
-## Interests / Hobbies
+```markdown
+Student Trainee
+# @Bosch
 
+```
 
+</details>
+
+<details>
+
+<summary>Certifications</summary>
+
+* Red Hat Certified Systems Administrator (RHCSA)
+* Cisco Certified Support Technician (Cybersecurity)
+
+</details>
+
+<details>
+
+<summary>Skills</summary>
+
+*
+
+</details>
+
+<details>
+
+<summary>Interests / Hobbies</summary>
+
+* Badminton
+* Snooker / Pool
+* Music / Drums
+* Calisthenics
+* Bouldering&#x20;
+
+</details>
 
 ## Profiles
 
