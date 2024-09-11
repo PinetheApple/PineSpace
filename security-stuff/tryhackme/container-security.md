@@ -112,7 +112,12 @@ nsenter --target 1 --mount --uts --ipc --net /bin/bash
 The command does the following -
 
 1. Sets the target of the shell command as the namespace of the special system process (PID 1) to gain root
-2.
+2. Sets the namespace to be mounted; If no file is specified, it will enter the mount namespace of the target process.
+3. Allows you to share the same UTS (Unix Timesharing System) namespace as the target process, meaning the same hostname is used; Mismatching hostnames can cause connection issues.
+4. Enters the IPC (Inter-process communication) namespace of the process which is important as it means that memory can be shared
+5. Enters the network namespace to allow you to interact with network-related features of the system; For example, the network interfaces can be used to open a new connection like a stable reverse shell on the host.
+
+`bash` will execute in the same namespace (and privileges) of the kernel.
 
 ***
 

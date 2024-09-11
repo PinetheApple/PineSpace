@@ -19,7 +19,7 @@ layout:
 
 # About Me
 
-
+Hello.
 
 <details>
 
@@ -28,12 +28,14 @@ layout:
 ```markdown
 Cybersecurity Intern
 # @Airbus
+# 6 months
 
 ```
 
 ```markdown
 Student Trainee
 # @Bosch
+# 2 months
 
 ```
 
@@ -52,7 +54,11 @@ Student Trainee
 
 <summary>Skills</summary>
 
-*
+* Python, Java, Javascript, C++, Bash
+* HTML, CSS, Markdown
+* Linux
+* Splunk (SPL)
+* Metasploit, Burpsuite
 
 </details>
 
@@ -64,7 +70,8 @@ Student Trainee
 * Snooker / Pool
 * Music / Drums
 * Calisthenics
-* Bouldering&#x20;
+* Bouldering
+* Learning German and Japanese
 
 </details>
 
