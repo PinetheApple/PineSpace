@@ -19,25 +19,31 @@ layout:
 
 # About Me
 
-Hello.
+Hello there! My name is Jonathan. I am a computer science engineering graduate (2024 batch). I am currently learning ethical hacking / penetration testing using TryHackMe and HackTheBox. I like sports, adventure, and learning new things. This website is for me to showcase some things that I have learned, mainly with regards to cybersecurity. My ambition is to one day become an "expert" and make valuable contributions to the field. Hopefully, this site will be of use to someone someday.
+
+Here's a little more information about me -
 
 <details>
 
 <summary>Experience</summary>
 
+{% code overflow="wrap" %}
 ```markdown
 Cybersecurity Intern
 # @Airbus
 # 6 months
-
+Workied as an intern in the Security Operations Centre team. Worked on log monitoring and alert generation in Splunk. Developed use cases for auditd (Linux) on Splunk and learned about Windows Internals and container security.
 ```
+{% endcode %}
 
+{% code overflow="wrap" %}
 ```markdown
 Student Trainee
 # @Bosch
 # 2 months
-
+Developed software (Java) for the Systems Engineering Department to automate system model migration between different modelling tools.
 ```
+{% endcode %}
 
 </details>
 
@@ -67,6 +73,7 @@ Student Trainee
 <summary>Interests / Hobbies</summary>
 
 * Badminton
+* Chess
 * Snooker / Pool
 * Music / Drums
 * Calisthenics
