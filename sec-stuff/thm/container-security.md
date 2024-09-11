@@ -125,7 +125,42 @@ The command does the following -
 
 ### Protecting the Docker Daemon
 
+Make sure to use secure communication and authentication methods to prevent unauthorised access to the Docker daemon.
 
+#### SSH
+
+You can use SSH authentication to interact with other devices running Docker. Docker uses contexts which can be thought of as profiles. Profiles allow developers to save and swap between configurations for other devices. You must have SSH access to the remote device and the user account on the remote device must have permission to execute Docker commands.
+
+Use the following command to create a Docker context on your device -
+
+```bash
+docker context create
+--docker host=ssh://<username>@<remotehost>
+--description="Development Environment"
+development-environment-host
+```
+
+Run the following command to switch to the created context -
+
+```bash
+docker context use development-environment-host
+```
+
+#### TLS Encryption
+
+The Docker daemon can also be interacted with using HTTP/S. Docker will only accept remote commands from devices that have been signed against the device you wish to execute Docker commands on remotely when configured in TLS mode.
+
+To configure TLS mode run the following command on the server that you are issuing commands to -
+
+```bash
+dockerd --tlsverify --tlscacert=myca.pem --tlscert=myserver-cert.pem --tlskey=myserver-key.pem -H=0.0.0.0:2376
+```
+
+Run the following command on the client that you are issuing commands from -
+
+```bash
+docker --tlsverify --tlscacert=myca.pem --tlscert=client-cert.pem --tlskey=client-key.pem -H=<SERVER_IP>:2386 info
+```
 
 ### Implementing Control Groups
 

@@ -1,5 +1,6 @@
 ---
 description: Notes from the 'Red Teaming' Learning Path on TryHackMe
+hidden: true
 ---
 
 # 🏹 Red Teaming Learning Path
