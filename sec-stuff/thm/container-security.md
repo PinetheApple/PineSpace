@@ -152,23 +152,46 @@ The Docker daemon can also be interacted with using HTTP/S. Docker will only acc
 
 To configure TLS mode run the following command on the server that you are issuing commands to -
 
+{% code overflow="wrap" %}
 ```bash
 dockerd --tlsverify --tlscacert=myca.pem --tlscert=myserver-cert.pem --tlskey=myserver-key.pem -H=0.0.0.0:2376
 ```
+{% endcode %}
 
 Run the following command on the client that you are issuing commands from -
 
+{% code overflow="wrap" %}
 ```bash
 docker --tlsverify --tlscacert=myca.pem --tlscert=client-cert.pem --tlskey=client-key.pem -H=<SERVER_IP>:2386 info
 ```
+{% endcode %}
 
-### Implementing Control Groups
+### <mark style="background-color:yellow;">Implementing Control Groups</mark>
 
+* control groups (cgroups) are a feature of the Linux kernel that facilitates restricting and prioritising the number of system resources a process can utilise
+* improves system stability and allows administrators to track system resource use better
+* for Docker, implementing cgroups helps achieve isolation and stability
+* behaviour is not enabled by default on Docker and must be enabled per container when starting the container
+* The switches used to specify the limit of resources a container can use
+* CPU - `--cpus` - `docker run -it --cpus="1" mycontainer`
+* Memory - `--memory` - `docker run -it --memory="20m" mycontainer`
+* Can also update setting once the container is running
+* `docker update --memory="40m" mycontainer`
+* View information about a container
+* `docker inspect mycontainer`
+* if resource limit is set to 0, this means that no resource limits have been set
 
+### <mark style="background-color:blue;">Preventing "Over-Privileged" Containers</mark>
 
-### Preventing "Over-Privileged" Containers
-
-
+* capabilities are a security feature of Linux that determines what processes can and cannot do on a granular level
+* they allow us to fine-tune what privileges a process has
+* CAP\_NET\_BIND\_SERVICE - allows services to bind to ports, specifically those under 1024, which usually requiers root privileges
+* CAP\_SYS\_ADMIN - variety of admin privileges; mount/unmount file systems, changing network settings, performing system reboots, shutdowns, and more
+* CAP\_SYS\_RESOURCE - allows a process to modify maximum limit of resources available; for example, a process can use more memory or bandwidth
+* privileged contianers have full root access
+* assign capabilities to containers individually instead of running containers with the `--privileged` flag
+* `docker run -it --rm --cap-drop=ALL --cap-add=NET_BIND_SERVICE webserver`
+* determine what capabilites are assigned to a process - `capsh --print`
 
 ### Seccomp and AppArmor
 
@@ -280,7 +303,52 @@ Resources -
 
 ### Reviewing Docker Images
 
-
+You should analyse the code for Dockerfiles before using them to check for vulnerabilities or malicious actions. You can use [Dive](https://github.com/wagoodman/dive) for this. It is a tool to reverse engineer Docker images by inspecting what is executed and changed at each layer during the build process.
 
 ### Compliance and Benchmarking
 
+<details>
+
+<summary>Compliance Frameworks</summary>
+
+The following frameworks can be used for compliance with regards to containers -
+
+* [NIST SP 800-190](https://csrc.nist.gov/publications/detail/sp/800-190/final)
+* [ISO 27001](https://www.iso.org/standard/27001)
+
+</details>
+
+<details>
+
+<summary>Benchmarking Tools</summary>
+
+The following tools can be used to benchmark containers -
+
+* [CIS Docker Benchmark](https://www.cisecurity.org/benchmark/docker)
+  * This tool can assess a container's compliance with the CIS Docker Benchmark framework.
+* [OpenSCAP](https://www.open-scap.org/)
+  * This tool can assess a container's compliance with multiple frameworks, including CIS Docker Benchmark, NIST SP-800-190 and more.
+* [Docker Scout](https://docs.docker.com/scout/)
+  * This tool is a cloud-based service provided by Docker itself that scans Docker images and libraries for vulnerabilities. This tool lists the vulnerabilities present and provides steps to resolve these.
+* [Grype](https://github.com/anchore/grype)
+  * It is a modern and fast vulnerability scanner for container images and filesystems.
+
+</details>
+
+Using Docker scout to scan an nginx image for known vulnerabilities -
+
+```bash
+docker scout cves local://nginx:latest
+```
+
+Using Grype to scan docker image for vulnerabilties -&#x20;
+
+```bash
+grype imagename --scope all-layers
+```
+
+Using Grype to scan exported container filesystem (exported using `docker image save`) -
+
+```bash
+grype /path/to/image.tar
+```
