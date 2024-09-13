@@ -19,7 +19,9 @@ layout:
 
 # About Me
 
-Hello there! My name is Jonathan. I am a computer science engineering graduate (2024 batch). I am currently learning ethical hacking / penetration testing using TryHackMe and HackTheBox. I like sports, adventure, and learning new things. This website is for me to showcase some things that I have learned, mainly with regards to cybersecurity. My ambition is to one day become an "expert" and make valuable contributions to the field. Hopefully, this site will be of use to someone someday.
+Hello there! My name is Jonathan. I am a computer science engineering graduate (2024 batch). I am currently learning ethical hacking / penetration testing using websites like TryHackMe and HackTheBox. I like sports, adventure, and learning new things.&#x20;
+
+This website is for me to showcase some of the things that I have learned, mainly with regards to cybersecurity. My ambition is to one day become an "expert" and make valuable contributions to the field. Hopefully, this site will be of use to someone someday.
 
 Here's a little more information about me -
 
@@ -60,11 +62,12 @@ Developed software (Java) for the Systems Engineering Department to automate sys
 
 <summary>Skills</summary>
 
-* Python, Java, Javascript, C++, Bash
+* Python, Java, Javascript along with some Rust and C++
 * HTML, CSS, Markdown
-* Linux
+* Linux, Bash
 * Splunk (SPL)
-* Metasploit, Burpsuite
+* Metasploit, Burpsuite, Nmap
+* Some knowledge of / experience with GCP, AWS
 
 </details>
 
