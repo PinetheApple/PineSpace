@@ -14,3 +14,4 @@ layout:
 
 # General
 
+This section contains information about how I setup environments for pentesting / development (possibly going to add this later) along with general security-related information.
