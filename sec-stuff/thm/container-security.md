@@ -166,32 +166,57 @@ docker --tlsverify --tlscacert=myca.pem --tlscert=client-cert.pem --tlskey=clien
 ```
 {% endcode %}
 
-### <mark style="background-color:yellow;">Implementing Control Groups</mark>
+### Implementing Control Groups
 
-* control groups (cgroups) are a feature of the Linux kernel that facilitates restricting and prioritising the number of system resources a process can utilise
-* improves system stability and allows administrators to track system resource use better
-* for Docker, implementing cgroups helps achieve isolation and stability
-* behaviour is not enabled by default on Docker and must be enabled per container when starting the container
-* The switches used to specify the limit of resources a container can use
-* CPU - `--cpus` - `docker run -it --cpus="1" mycontainer`
-* Memory - `--memory` - `docker run -it --memory="20m" mycontainer`
-* Can also update setting once the container is running
-* `docker update --memory="40m" mycontainer`
-* View information about a container
-* `docker inspect mycontainer`
-* if resource limit is set to 0, this means that no resource limits have been set
+Control groups (or cgroups) are a feature of the Linux kernel that facilitates restricting and prioritising the number of system resources a process can utilise. It improves system stability and allows administrators to track the use of system resources better.
 
-### <mark style="background-color:blue;">Preventing "Over-Privileged" Containers</mark>
+For Docker, implementing cgroups helps achieve isolation and stability. This behaviour is not enabled by default and must be enabled when starting a container. Some examples of setting limits to resources for a container -
 
-* capabilities are a security feature of Linux that determines what processes can and cannot do on a granular level
-* they allow us to fine-tune what privileges a process has
-* CAP\_NET\_BIND\_SERVICE - allows services to bind to ports, specifically those under 1024, which usually requiers root privileges
-* CAP\_SYS\_ADMIN - variety of admin privileges; mount/unmount file systems, changing network settings, performing system reboots, shutdowns, and more
-* CAP\_SYS\_RESOURCE - allows a process to modify maximum limit of resources available; for example, a process can use more memory or bandwidth
-* privileged contianers have full root access
-* assign capabilities to containers individually instead of running containers with the `--privileged` flag
-* `docker run -it --rm --cap-drop=ALL --cap-add=NET_BIND_SERVICE webserver`
-* determine what capabilites are assigned to a process - `capsh --print`
+```bash
+docker run -it --cpus="1" mycontainer
+```
+
+```bash
+docker run -it --memory="20m" mycontainer
+```
+
+Use the following command to update the setting once the container is running -
+
+```bash
+docker update --memory="40m" mycontainer
+```
+
+You can view information about a container using the following command -
+
+```bash
+docker inspect mycontainer
+```
+
+{% hint style="info" %}
+If resource limit is set to 0, it means that no resource limits has been set.
+{% endhint %}
+
+Read more about cgroups at -
+
+{% embed url="https://docs.docker.com/engine/containers/runmetrics/#control-groups" %}
+
+### Preventing "Over-Privileged" Containers
+
+Capabilities are a security feature of Linux that determines what processes can and cannot do on a granular level. They allow you to fine-tune what privileges a process has. Some capabilities are -
+
+* CAP\_NET\_BIND\_SERVICE - allows services to bind to ports, specifically those under 1024, which usually requires root privileges
+* CAP\_SYS\_ADMIN - provides a variety of admin privileges such as mounting/unmounting file systems, changing network settings and performing system reboots/shutdowns
+* CAP\_SYS\_RESOURCE - allows a process to modify the maximum limit of resources available
+
+Privileged containers have full root access and therefore it is better to assign capabilities to containers individually instead of running containers with the `--privileged` flag. The following command removes all other capabilities and adds the `NET_BIND_SERVICE` capability to the `webserver` container -
+
+```bash
+docker run -it --rm --cap-drop=ALL --cap-add=NET_BIND_SERVICE webserver
+```
+
+You can determine what capabilites are assigned to a process by using the `capsh --print` command. Read more about capabilities at -
+
+{% embed url="https://docs.docker.com/engine/security/#linux-kernel-capabilities" %}
 
 ### Seccomp and AppArmor
 
