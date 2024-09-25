@@ -51,8 +51,13 @@
 * [HackTheBox](sec-stuff/htb/README.md)
   * [Bug bounty hunting](sec-stuff/htb/bug\_bounty.md)
 
+## Development
+
+* [HTTP Server in C](development/http-server-in-c.md)
+
 ## Walkthroughs
 
-* [🚩 CTFs](walkthroughs/ctfs.md)
+* [🚩 CTFs](walkthroughs/ctfs/README.md)
+  * [Huntress CTF 2024](walkthroughs/ctfs/huntress-ctf-2024.md)
 * [☁️ TryHackMe](walkthroughs/tryhackme.md)
 * [HackTheBox](walkthroughs/hackthebox.md)

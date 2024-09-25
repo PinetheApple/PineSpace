@@ -14,6 +14,8 @@ layout:
 
 # Fundamentals
 
+## Work In Progress
+
 This section only covers the last room of the module. The other rooms are freely accessible on TryHackMe.
 
 {% embed url="https://tryhackme.com/module/red-team-fundamentals" %}
