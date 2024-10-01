@@ -59,5 +59,8 @@
 
 * [🚩 CTFs](walkthroughs/ctfs/README.md)
   * [Huntress CTF 2024](walkthroughs/ctfs/huntress-ctf-2024.md)
+  * [Flare-On 11 (2024)](walkthroughs/ctfs/flare-on-11-2024/README.md)
+    * [Frog](walkthroughs/ctfs/flare-on-11-2024/frog.md)
+    * [Checksum](walkthroughs/ctfs/flare-on-11-2024/checksum.md)
 * [☁️ TryHackMe](walkthroughs/tryhackme.md)
 * [HackTheBox](walkthroughs/hackthebox.md)
