@@ -76,7 +76,6 @@ Developed software (Java) for the Systems Engineering Department to automate sys
 <summary>Interests / Hobbies</summary>
 
 * Badminton
-* Chess
 * Snooker / Pool
 * Music / Drums
 * Calisthenics
