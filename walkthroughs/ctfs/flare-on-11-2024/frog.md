@@ -10,7 +10,7 @@ The aim of this challenge is to get the frog to the statue. The only problem is 
 
 1.  Creating a path to the statue
 
-    The blocks that make up the "maze" are defined near the end of the program. By just removing some of these "blocks" from the array we can open a path for the frog.
+    The blocks that make up the "maze" are defined near the end of the program. By just removing some of these "blocks" from the list we can open a path for the frog.
 
     ```python
     def BuildBlocks():

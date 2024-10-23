@@ -1,2 +1,0 @@
-# I Can't SSH
-
