@@ -4,7 +4,7 @@ description: Warmups
 
 # Whamazon
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 This challenge is rather simple, but it's also quite easy to overthink it. All you have to do is buy the flag from "Whamazon".  The only issue is that the flag costs $10000000000 but you only have $50 to use. So currently, with the money you have, you can't buy the flag nor the house (not that you need the house).
 

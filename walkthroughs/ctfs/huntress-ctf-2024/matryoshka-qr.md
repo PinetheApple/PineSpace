@@ -4,7 +4,7 @@ description: Warmups
 
 # Matryoshka QR
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 As a part of this challenge, you are given a QR code. Scanning the code gives you the data for a PNG image (as indicated by the `\x89PNG` at the start), which is just another QR code. Save the data as bytes into another PNG file and view it using an image viewer of your choice. Scan the smaller QR code to get the challenge flag.
 
