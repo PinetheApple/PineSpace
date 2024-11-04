@@ -1,5 +1,6 @@
 ---
 description: Warmups
+hidden: true
 ---
 
 # Finder's Fee

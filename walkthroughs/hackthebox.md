@@ -1,5 +1,6 @@
 ---
 icon: cube
+hidden: true
 cover: ../.gitbook/assets/htb_green.png
 coverY: 0
 layout:

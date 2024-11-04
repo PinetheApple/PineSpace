@@ -1,4 +1,5 @@
 ---
+hidden: true
 cover: ../.gitbook/assets/thm_red.png
 coverY: 0
 layout:
